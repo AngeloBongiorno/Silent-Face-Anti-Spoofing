@@ -66,7 +66,7 @@ class AntiSpoofPredict(Detection):
         h_input, w_input, model_type, _ = parse_model_name(model_name)
 
         kernel_size = get_kernel(h_input, w_input)
-        model = MODEL_MAPPING[model_type](conv6_kernel=self.kernel_size).to(self.device)
+        model = MODEL_MAPPING[model_type](conv6_kernel=kernel_size).to(self.device)
 
         state_dict = torch.load(model_path, map_location=self.device)
 
